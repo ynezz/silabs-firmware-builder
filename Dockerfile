@@ -20,6 +20,7 @@ RUN \
        unzip \
        xz-utils
 
+COPY tools/build_firmware.sh /usr/bin/build_firmware.sh
 # Install Simplicity Commander (unfortunately no stable URL available, this
 # is known to be working with Commander_linux_x86_64_1v15p0b1306.tar.bz).
 RUN \
@@ -66,6 +67,12 @@ ARG USER_GID=$USER_UID
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+
+RUN mkdir -p /build_dir /outputs
+RUN chown $USERNAME:$USERNAME \
+    /simplicity_sdk_* \
+    /build_dir \
+    /outputs
 
 USER $USERNAME
 WORKDIR /build
