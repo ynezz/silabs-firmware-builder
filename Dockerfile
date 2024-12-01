@@ -70,7 +70,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 RUN mkdir -p /build_dir /outputs
 RUN chown $USERNAME:$USERNAME \
-    /gecko_sdk_* \
     /simplicity_sdk_* \
     /build_dir \
     /outputs
