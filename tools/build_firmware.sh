@@ -5,7 +5,7 @@ build_dir="build_dir"
 output_dir="outputs"
 work_dir="/build"
 manifest_files=()
-python_interpreter="/opt/venv/bin/python3"
+python_interpreter="python3"
 
 # Show help message
 show_help() {
